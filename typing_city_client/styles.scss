@@ -37,11 +37,20 @@
 * Default |
 *********/
 
-.login {
-  border: 1px solid white;
-  border-radius: 20px;
+.main-body {
+  height: inherit;
+  width: auto;
   margin-top: 5%;
   padding: 5% 0;
+  border: 1px solid white;
+  border-radius: 20px;
+}
+
+
+.login {
+  text-align: center;
+  //width: inherit;
+  //height: inherit;
 }
 
 .login h1 {
@@ -94,7 +103,7 @@
     border: 2px solid white;
     background-color: white;
     color: #4162FE;
-    margin-top: 10%;
+    margin: 10% 0 5%;
 
 
     //background-color: #ff9100;
@@ -108,10 +117,21 @@
 
 }
 
+.login_-_new-user {
+  color: white;
+  font-size: 16px;
+  font-weight:bold;
+}
+
+
 // Animation -------------------------------------------------------------------
 
 .login_-_form input[type=submit] {
   transition: all 500ms;
+}
+
+.main-body {
+  transition: height 1s, width 1s;
 }
 
 // Active ----------------------------------------------------------------------
