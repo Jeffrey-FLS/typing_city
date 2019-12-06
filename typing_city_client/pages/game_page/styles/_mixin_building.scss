@@ -1,0 +1,172 @@
+
+
+
+@mixin create-building($size, $color, $dimensions, $translateZ) {
+
+  $building-height: 0;
+  $bottom: 25px;
+
+  @if $size == small {
+    $building-height: 50px;
+  } @else if $size == medium {
+    $building-height: 150px;
+  } @else if $size == large {
+    $building-height: 300px;
+  }
+
+  bottom: $bottom + $building-height;
+
+  .building_-_face,
+  .building_-_face-z {
+    width: $dimensions;
+    line-height: $dimensions;
+    font-size: 10px;
+
+    position: absolute;
+    //border: 2px solid black;
+    border: 1px solid silver;
+    text-align: center;
+    color: transparent;
+    font-weight: bold;
+  }
+
+  .building_-_face {
+    height: $dimensions + $building-height;
+    //border-radius: 10%;
+  }
+
+  .building_-_face-z {
+    height: $dimensions;
+  }
+
+  $building-opacity: 1;
+  //$building-opacity: 0.8;
+
+  // BUILDING LAYER POSITION
+
+  .building_-_front {
+    transform: rotateY(0deg) translateZ($translateZ);
+  }
+  .building_-_back {
+    transform: rotateY(180deg) translateZ($translateZ);
+  }
+  .building_-_left {
+    transform: rotateY(90deg) translateZ($translateZ);
+  }
+  .building_-_right {
+    transform: rotateY(270deg) translateZ($translateZ);
+  }
+  .building_-_top {
+    transform: rotateX(90deg) translateZ($translateZ);
+  }
+  .building_-_bottom {
+    transform: rotateX(270deg) translateZ($translateZ + $building-height);
+  }
+
+  // BUILDING COLOR
+
+  .building_-_front {
+    background-color: rgba($color, $building-opacity);
+  }
+  .building_-_back {
+    background-color: rgba($color, $building-opacity);
+  }
+  .building_-_left {
+    background-color: rgba($color, $building-opacity);
+  }
+  .building_-_right {
+    background-color: rgba($color, $building-opacity);
+  }
+  .building_-_top {
+    background-color: rgba($color, $building-opacity);
+  }
+  .building_-_bottom {
+    background-color: rgba($color, $building-opacity);
+  }
+}
+
+
+//
+//
+//@mixin create-building($size, $color, $dimensions, $translateZ) {
+//
+//  $building-height: 0;
+//  $bottom: 25px;
+//
+//
+//  @if $size == small {
+//    $building-height: 50px;
+//  } @else if $size == medium {
+//    $building-height: 150px;
+//  } @else if $size == large {
+//    $building-height: 300px;
+//  }
+//
+//  bottom: $bottom + $building-height;
+//
+//  .building_-_face,
+//  .building_-_face-z {
+//    width: $dimensions;
+//    line-height: $dimensions;
+//    font-size: 10px;
+//
+//    position: absolute;
+//    border: 2px solid black;
+//    text-align: center;
+//    color: white;
+//    font-weight: bold;
+//  }
+//
+//  .building_-_face {
+//    height: $dimensions + $building-height;
+//    //border-radius: 10%;
+//  }
+//
+//  .building_-_face-z {
+//    height: $dimensions;
+//  }
+//
+//  $building-opacity: 0.8;
+//
+//  // BUILDING LAYER POSITION
+//
+//  .building_-_front {
+//    transform: rotateY(0deg) translateZ($translateZ);
+//  }
+//  .building_-_back {
+//    transform: rotateY(180deg) translateZ($translateZ);
+//  }
+//  .building_-_left {
+//    transform: rotateY(90deg) translateZ($translateZ);
+//  }
+//  .building_-_right {
+//    transform: rotateY(270deg) translateZ($translateZ);
+//  }
+//  .building_-_top {
+//    transform: rotateX(90deg) translateZ($translateZ);
+//  }
+//  .building_-_bottom {
+//    transform: rotateX(270deg) translateZ($translateZ + $building-height);
+//  }
+//
+//  // BUILDING COLOR
+//
+//  .building_-_front {
+//    background-color: rgba($color, $building-opacity);
+//  }
+//  .building_-_back {
+//    background-color: rgba($color, $building-opacity);
+//  }
+//  .building_-_left {
+//    background-color: rgba($color, $building-opacity);
+//  }
+//  .building_-_right {
+//    background-color: rgba($color, $building-opacity);
+//  }
+//  .building_-_top {
+//    background-color: rgba($color, $building-opacity);
+//  }
+//  .building_-_bottom {
+//    background-color: rgba($color, $building-opacity);
+//  }
+//}

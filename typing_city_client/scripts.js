@@ -44,9 +44,11 @@ function createUser(objUser) {
 
 const htmlLogin = `
     <div class="login">
-        <h1>Login</h1>
+        <div class="main_-_title">
+            <h1>Login</h1>
+        </div>
 
-        <form class="login_-_form" action="">
+        <form id="login_-_form" class="main_-_form" action="">
             <label for="username">Username
                 <input type="text" name="username">
             </label>
@@ -67,9 +69,11 @@ const htmlLogin = `
 
 const htmlCreateUser = `
     <div class="login">
-        <h1>New User</h1>
+        <div class="main_-_title">
+            <h1>New User</h1>
+        </div>
 
-        <form class="create-user_-_form" action="">
+        <form id="create-user_-_form" class="main_-_form" action="">
             <label for="username">Username
                 <input type="text" name="username">
             </label>
@@ -93,10 +97,32 @@ const htmlCreateUser = `
     </div>
     `;
 
+
+const htmlMainMenu = (objUser) => {
+    return `
+    <div class="menu">
+        <div class="main_-_title">
+            <h1>Menu</h1>
+        </div>
+        
+        <h3>Welcome ${objUser.first_name}</h3>
+        
+        <a href="pages/game_page/game.html" onclick="">Play Game</a>
+        <a href="#">Top Scores</a>
+        <a href="#">View Profile</a>
+        <a href="#">Log Out</a>
+        
+    </div>
+    `
+};
+
+
 const htmlUserProfile = (objUser) => {
     return `
         <div class="login">
-            <h1>Profile</h1>
+            <div class="main_-_title">    
+                <h1>Profile</h1>
+            </div>
         
             <h3>Welcome ${objUser.first_name}</h3>
     
@@ -119,9 +145,13 @@ const loadHtmlCreateUser = () => {
     formCreateUserEventListener();
 };
 
-const loadHtmlUserProfile = (objUser) => {
-    htmlMainBody.innerHTML = htmlUserProfile(objUser);
+const loadHtmlMainMenu = (objUser) => {
+    htmlMainBody.innerHTML = htmlMainMenu(objUser);
 };
+
+// const loadHtmlUserProfile = (objUser) => {
+//     htmlMainBody.innerHTML = htmlUserProfile(objUser);
+// };
 
 
 
@@ -131,6 +161,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
     // HTML Loads
     loadHtmlLogin();
+    // loadHtmlMainMenu({name:"Tofu"});
 
     // Submit Listeners
 
@@ -151,7 +182,7 @@ document.addEventListener("DOMContentLoaded", () => {
 // Form Submit Event Listeners -------------------------------------------------
 
 const formLoginEventListener = () => {
-    const formLoginUser = document.querySelector(".login_-_form");
+    const formLoginUser = document.querySelector("#login_-_form");
 
     formLoginUser.addEventListener('submit', (event) => {
         event.preventDefault();
@@ -162,7 +193,7 @@ const formLoginEventListener = () => {
 
                 data.forEach((obj) => {
                     obj.username === event.target.username.value && obj.password === event.target.password.value
-                        ? loadHtmlUserProfile(obj)
+                        ? loadHtmlMainMenu(obj)
                         : console.log("username doesn't macth")
                 })
             })
@@ -173,7 +204,7 @@ const formLoginEventListener = () => {
 };
 
 const formCreateUserEventListener = () => {
-    const formCreateUser = document.querySelector(".create-user_-_form");
+    const formCreateUser = document.querySelector("#create-user_-_form");
 
     console.log(formCreateUser);
 
